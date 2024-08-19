@@ -1,4 +1,4 @@
-import { name } from "ejs";
+import ejs from "ejs";
 import mongoose from "mongoose";
 
 mongoose.connect("mongodb://127.0.0.1:27017/testapp1");
@@ -11,3 +11,4 @@ const userSchema = mongoose.Schema({
 
 
 module.exports = mongoose.model('user', userSchema);
+
