@@ -13,33 +13,27 @@
     <a class="text-blue-500" href="/">back to home</a>                                  <!-- link to go bacak home page through route-->
     <h1 class="text-3xl tracking-tighter mb-3">All Users</h1>
     <div class="users flex gap-3 flex-wrap">
-        <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
-            <div class="w-full h-52 rounded-lg bg-zinc-700"></div>
-            <h3 class="text-xl mt-3 tracking-tighter">Abhishek Kumar</h3>
-            <h5 class="text-zinc-500">abhishek@gmail.com</h5>
-            <div class="flex gap-3 mt-10">
-                <a class="text-zinc-200" href="">Edit User</a>
-                <a class="text-red-500" class="" href="">Delete User</a>
-            </div>
-        </div>
-        <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
-            <div class="w-full h-52 rounded-lg bg-zinc-700"></div>
-            <h3 class="text-xl mt-3 tracking-tighter">Abhishek Kumar</h3>
-            <h5 class="text-zinc-500">abhishek@gmail.com</h5>
-            <div class="flex gap-3 mt-10">
-                <a class="text-zinc-200" href="">Edit User</a>
-                <a class="text-red-500" class="" href="">Delete User</a>
-            </div>
-        </div>
-        <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
-            <div class="w-full h-52 rounded-lg bg-zinc-700"></div>
-            <h3 class="text-xl mt-3 tracking-tighter">Abhishek Kumar</h3>
-            <h5 class="text-zinc-500">abhishek@gmail.com</h5>
-            <div class="flex gap-3 mt-10">
-                <a class="text-zinc-200" href="">Edit User</a>
-                <a class="text-red-500" class="" href="">Delete User</a>
-            </div>
-        </div>
+        <% if(user.length > 0){ %>
+            <% users.foreach(function(user){ %>
+
+                <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
+                    <div class="w-full h-72 rounded-lg bg-zinc-700 overflow-hidden">
+                              <img class="w-full h-full object-cover object-top" src="<%= user.image %>"alt="">
+                    </div>
+                    <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                    <h5 class="text-zinc-500"><%= user.email %></h5>
+                    <div class="flex gap-3 mt-10">
+                        <a class="text-zinc-200" href="/edit/<%= user._id %>">Edit User</a>
+                        <a class="text-red-500" class="" href="/delete/<%= user._id %>">Delete User</a>
+                    </div>
+                </div>
+            <% })  %>
+     <%   }  else {  %>
+        <h3 class="text-zinc-500"> no users yet </h3>
+         
+      <% }%>
+
+      
         <!-- <div class="user w-72  p-4 bg-zinc-800 rounded-lg">
             <div class="w-full h-52 rounded-lg bg-zinc-700"></div>
             <h3 class="text-xl mt-3 tracking-tighter">Abhishek Kumar</h3>
