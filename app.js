@@ -1,8 +1,8 @@
 import express from "express";
-const app = express();                //calling a express function
-
 import path from "path";
 import userModel from "./models/user";
+
+const app = express();                //calling a express function
 
 // setup of Ejs (url encoded)  or json setup krna takii hmara form work kre and view engine setup for ejs
 
